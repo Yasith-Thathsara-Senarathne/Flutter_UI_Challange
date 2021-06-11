@@ -15,4 +15,11 @@ abstract class ImageNames {
   static const searchImage = 'lib/Assets/search_icon_image.png';
   static const shopImage = 'lib/Assets/shop_icon_image.png';
   static const userImage = 'lib/Assets/user_icon_image.png';
+  static const personImage01 = 'lib/Assets/person_image_01.png';
+  static const personImage02 = 'lib/Assets/person_image_02.png';
+  static const personImage03 = 'lib/Assets/person_image_03.png';
+  static const personImage04 = 'lib/Assets/person_image_04.png';
+  static const personImage05 = 'lib/Assets/person_image_05.png';
+  static const personImage06 = 'lib/Assets/person_image_06.png';
+  static const personImage07 = 'lib/Assets/person_image_07.png';
 }

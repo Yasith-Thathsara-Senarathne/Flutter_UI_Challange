@@ -57,6 +57,13 @@ flutter:
     - lib/Assets/search_icon_image.png
     - lib/Assets/shop_icon_image.png
     - lib/Assets/user_icon_image.png
+    - lib/Assets/person_image_01.png
+    - lib/Assets/person_image_02.png
+    - lib/Assets/person_image_03.png
+    - lib/Assets/person_image_04.png
+    - lib/Assets/person_image_05.png
+    - lib/Assets/person_image_06.png
+    - lib/Assets/person_image_07.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
