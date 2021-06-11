@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:instagram_ui/Models/PostDataModel.dart';
 import 'package:instagram_ui/Models/StoryDataModel.dart';
 import 'package:instagram_ui/UI/Home/home_controller.dart';
 import 'package:instagram_ui/Utils/bottom_menu.dart';
 import 'package:instagram_ui/Widgets/app_bar_view.dart';
 import 'package:instagram_ui/Widgets/bottom_nav_bar.dart';
+import 'package:instagram_ui/Widgets/post_view.dart';
 import 'package:instagram_ui/Widgets/story_view.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -33,6 +35,17 @@ class _HomeScreenState extends State<HomeScreen>
           );
   }
 
+  Widget bindPostListView(List<PostDataModel> postList, double size) {
+    return postList.isEmpty
+        ? Container()
+        : ListView.builder(
+            itemCount: postList.length,
+            itemBuilder: (context, index) {
+              return PostView(postList[index], size);
+            },
+          );
+  }
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -51,6 +64,10 @@ class _HomeScreenState extends State<HomeScreen>
           Container(
             color: Colors.black.withOpacity(0.3),
             height: 0.4,
+          ),
+          Expanded(
+            child: bindPostListView(
+                _homeController.getPostList, mediaQuery.size.height),
           ),
         ],
       ),

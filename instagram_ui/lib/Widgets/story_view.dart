@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_ui/Models/StoryDataModel.dart';
-import 'package:instagram_ui/Widgets/story_circle_painter.dart';
 
 class StoryView extends StatelessWidget {
   final double size;
@@ -14,56 +13,75 @@ class StoryView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            width: size * 1.3,
-            height: size * 1.3,
-            margin: EdgeInsets.symmetric(horizontal: 8),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF9E2692),
-                  Color(0xFFFAA958),
-                ],
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: size * 1.2,
-                  height: size * 1.2,
+          storyData.isMine
+              ? Container(
+                  width: size * 1.3,
+                  height: size * 1.3,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white,
+                    // color: Colors.yellow,
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    clipBehavior: Clip.hardEdge,
+                    child: Image.asset(
+                      storyData.profileImageName,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
+              : Container(
+                  width: size * 1.3,
+                  height: size * 1.3,
+                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFF9E2692),
+                        Color(0xFFFAA958),
+                      ],
+                    ),
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: size * 1.1,
-                        height: size * 1.1,
+                        width: size * 1.2,
+                        height: size * 1.2,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.yellow,
+                          color: Colors.white,
                         ),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          clipBehavior: Clip.hardEdge,
-                          child: Image.asset(
-                            storyData.profileImageName,
-                            fit: BoxFit.cover,
-                          ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: size * 1.1,
+                              height: size * 1.1,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.yellow,
+                              ),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                clipBehavior: Clip.hardEdge,
+                                child: Image.asset(
+                                  storyData.profileImageName,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
+                      )
                     ],
                   ),
-                )
-              ],
-            ),
-          ),
+                ),
           SizedBox(
             height: 4,
           ),
