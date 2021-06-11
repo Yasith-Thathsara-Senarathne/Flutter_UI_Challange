@@ -22,6 +22,7 @@ environment:
 
 dependencies:
   get: ^3.26.0
+  persistent_bottom_nav_bar: ^4.0.2
   flutter:
     sdk: flutter
 
@@ -51,6 +52,11 @@ flutter:
     - lib/Assets/add_image.png
     - lib/Assets/heart_image.png
     - lib/Assets/share_image.png
+    - lib/Assets/add_icon_image.png
+    - lib/Assets/home_icon_image.png
+    - lib/Assets/search_icon_image.png
+    - lib/Assets/shop_icon_image.png
+    - lib/Assets/user_icon_image.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

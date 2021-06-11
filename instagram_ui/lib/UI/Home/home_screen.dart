@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_ui/Utils/Constants.dart';
+import 'package:instagram_ui/Utils/constants.dart';
+import 'package:instagram_ui/Widgets/app_bar_view.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -10,57 +11,23 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
+
     final body = SafeArea(
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 16),
-                child: Image.asset(
-                  ImageNames.instagramImage,
-                  color: Colors.black,
-                  width: 130,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 16),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      ImageNames.addImage,
-                      color: Colors.black,
-                      width: 25,
-                      height: 25,
-                    ),
-                    SizedBox(width: 16),
-                    Image.asset(
-                      ImageNames.heartImage,
-                      color: Colors.black,
-                      width: 25,
-                      height: 25,
-                    ),
-                    SizedBox(width: 16),
-                    Image.asset(
-                      ImageNames.shareImage,
-                      color: Colors.black,
-                      width: 25,
-                      height: 25,
-                    ),
-                  ],
-                ),
-              ),
-            ],
+          AppBarView(),
+          Container(
+            color: Colors.yellow,
+            height: (mediaQuery.size.height) * 0.14,
           ),
           Container(
-            width: mediaQuery.size.width,
+            color: Colors.black.withOpacity(0.3),
             height: 0.4,
-            color: Colors.black,
           )
         ],
       ),
     );
+
     return Scaffold(
       body: body,
     );
