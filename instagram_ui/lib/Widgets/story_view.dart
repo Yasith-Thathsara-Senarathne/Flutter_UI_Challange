@@ -15,11 +15,11 @@ class StoryView extends StatelessWidget {
         children: [
           storyData.isMine
               ? Container(
-                  width: size * 1.3,
-                  height: size * 1.3,
+                  width: size * 1.4,
+                  height: size * 1.4,
+                  margin: EdgeInsets.symmetric(horizontal: 6),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    // color: Colors.yellow,
                   ),
                   child: Container(
                     decoration: BoxDecoration(
@@ -33,9 +33,9 @@ class StoryView extends StatelessWidget {
                   ),
                 )
               : Container(
-                  width: size * 1.3,
-                  height: size * 1.3,
-                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  width: size * 1.4,
+                  height: size * 1.4,
+                  margin: EdgeInsets.symmetric(horizontal: 6),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     gradient: LinearGradient(
@@ -49,8 +49,8 @@ class StoryView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: size * 1.2,
-                        height: size * 1.2,
+                        width: size * 1.3,
+                        height: size * 1.3,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white,
@@ -59,8 +59,8 @@ class StoryView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              width: size * 1.1,
-                              height: size * 1.1,
+                              width: size * 1.2,
+                              height: size * 1.2,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Colors.yellow,

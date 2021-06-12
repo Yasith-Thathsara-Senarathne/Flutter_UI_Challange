@@ -35,13 +35,14 @@ class _HomeScreenState extends State<HomeScreen>
           );
   }
 
-  Widget bindPostListView(List<PostDataModel> postList, double size) {
+  Widget bindPostListView(
+      List<PostDataModel> postList, double width, double height) {
     return postList.isEmpty
         ? Container()
         : ListView.builder(
             itemCount: postList.length,
             itemBuilder: (context, index) {
-              return PostView(postList[index], size);
+              return PostView(postList[index], width, height);
             },
           );
   }
@@ -66,8 +67,8 @@ class _HomeScreenState extends State<HomeScreen>
             height: 0.4,
           ),
           Expanded(
-            child: bindPostListView(
-                _homeController.getPostList, mediaQuery.size.height),
+            child: bindPostListView(_homeController.getPostList,
+                mediaQuery.size.width, mediaQuery.size.height),
           ),
         ],
       ),

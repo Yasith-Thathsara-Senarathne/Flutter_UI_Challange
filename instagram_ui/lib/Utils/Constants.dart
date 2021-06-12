@@ -22,4 +22,7 @@ abstract class ImageNames {
   static const personImage05 = 'lib/Assets/person_image_05.png';
   static const personImage06 = 'lib/Assets/person_image_06.png';
   static const personImage07 = 'lib/Assets/person_image_07.png';
+  static const bookmarkImage = 'lib/Assets/bookmark_icon_image.png';
+  static const messageImage = 'lib/Assets/message_icon_image.png';
+  static const addStoryImage = 'lib/Assets/add_story_icon_image.png';
 }

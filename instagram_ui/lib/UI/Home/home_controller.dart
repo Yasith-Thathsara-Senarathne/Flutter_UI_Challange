@@ -6,7 +6,7 @@ import 'package:instagram_ui/Utils/constants.dart';
 class HomeController extends GetxController {
   List<StoryDataModel> get getStoryList {
     return [
-      StoryDataModel('Votre story', ImageNames.personImage01, true),
+      StoryDataModel('Your story', ImageNames.personImage01, true),
       StoryDataModel('Arthur', ImageNames.personImage02, false),
       StoryDataModel('James', ImageNames.personImage03, false),
       StoryDataModel('Mike', ImageNames.personImage04, false),
