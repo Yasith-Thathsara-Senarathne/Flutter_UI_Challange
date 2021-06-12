@@ -23,7 +23,7 @@ class HomeController extends GetxController {
           'Arthur',
           'Paris',
           [
-            ImageNames.personImage02,
+            ImageNames.personImage07,
             ImageNames.personImage03,
             ImageNames.personImage04
           ],
@@ -43,8 +43,8 @@ class HomeController extends GetxController {
           'John',
           '',
           [
-            ImageNames.personImage07,
             ImageNames.personImage06,
+            ImageNames.personImage02,
             ImageNames.personImage01
           ],
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standards.'),
