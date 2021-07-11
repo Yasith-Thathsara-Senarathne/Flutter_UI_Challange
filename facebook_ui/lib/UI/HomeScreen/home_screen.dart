@@ -1,7 +1,14 @@
+import 'package:facebook_ui/Models/ActiveUserDataModel.dart';
+import 'package:facebook_ui/Models/StoryDataModel.dart';
+import 'package:facebook_ui/UI/HomeScreen/home_controller.dart';
 import 'package:facebook_ui/Utils/bottom_menu.dart';
 import 'package:facebook_ui/Utils/constants.dart';
+import 'package:facebook_ui/Widgets/active_view.dart';
+import 'package:facebook_ui/Widgets/app_bar_view.dart';
 import 'package:facebook_ui/Widgets/bottom_nav_bar.dart';
+import 'package:facebook_ui/Widgets/story_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -10,145 +17,62 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
+  final _homeController = Get.put(HomeController());
   var selectedBottomBarItem = 0;
+
+  Widget _bindActiveListView(List<ActiveUserDataModel> activeUserList) {
+    return activeUserList.isEmpty
+        ? Container()
+        : ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: activeUserList.length,
+            itemBuilder: (context, index) {
+              return ActiveView(activeUserList[index]);
+            },
+          );
+  }
+
+  Widget _bindStoryListView(List<StoryDataModel> storyList, double viewHeight) {
+    return storyList.isEmpty
+        ? Container()
+        : ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: storyList.length,
+            itemBuilder: (context, index) {
+              return StoryView(storyList[index], viewHeight);
+            },
+          );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final activeViewHeight = mediaQuery.size.height * 0.076;
+    final storyViewHeight = mediaQuery.size.height * 0.28;
     final body = SafeArea(
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(
-              left: 16,
-              right: 16,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'facebook',
-                  style: TextStyle(
-                    color: AppColors.dodgerBlue,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 20,
-                      backgroundColor: AppColors.ghost.withOpacity(0.7),
-                      child: Padding(
-                        padding: EdgeInsets.all(9),
-                        child: Image.asset(ImageNames.searchIcon),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    CircleAvatar(
-                      radius: 20,
-                      backgroundColor: AppColors.ghost.withOpacity(0.7),
-                      child: Padding(
-                        padding: EdgeInsets.all(9),
-                        child: Image.asset(ImageNames.messangerIcon),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
+          AppBarView(),
           Container(
-            margin: EdgeInsets.only(top: 8),
-            color: AppColors.ghost,
-            height: 0.7,
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 10, left: 16, right: 16, bottom: 10),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 24,
-                  backgroundImage: ExactAssetImage(ImageNames.user),
-                ),
-                SizedBox(
-                  width: 12,
-                ),
-                Text(
-                  'What\'s on your mind?',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
+            height: activeViewHeight,
+            padding: EdgeInsets.symmetric(
+              horizontal: 8,
+              vertical: 8,
             ),
+            child: _bindActiveListView(_homeController.getActiveUserList),
           ),
           Container(
             color: AppColors.ghost,
-            height: 1,
+            height: 10,
           ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: 10,
-              left: 16,
-              right: 16,
-              bottom: 10,
+          Container(
+            height: storyViewHeight,
+            padding: EdgeInsets.symmetric(
+              horizontal: 8,
+              vertical: 8,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Row(
-                  children: [
-                    Image.asset(
-                      ImageNames.fbLiveIcon,
-                      width: 22,
-                      height: 22,
-                    ),
-                    SizedBox(
-                      width: 4,
-                    ),
-                    Text('Live'),
-                  ],
-                ),
-                Container(
-                  color: AppColors.ghost,
-                  width: 1,
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Image.asset(
-                      ImageNames.fbPhotoIcon,
-                      width: 22,
-                      height: 22,
-                    ),
-                    SizedBox(
-                      width: 4,
-                    ),
-                    Text('Photo'),
-                  ],
-                ),
-                Container(
-                  color: AppColors.ghost,
-                  width: 1,
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Image.asset(
-                      ImageNames.fbRoomSmallIcon,
-                      width: 22,
-                      height: 22,
-                    ),
-                    SizedBox(
-                      width: 4,
-                    ),
-                    Text('Room'),
-                  ],
-                ),
-              ],
-            ),
+            child: _bindStoryListView(
+                _homeController.getStoryList, storyViewHeight),
           ),
           Container(
             color: AppColors.ghost,

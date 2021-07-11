@@ -25,6 +25,8 @@ abstract class ImageNames {
   static const fbLiveIcon = 'lib/Assets/fb_live_icon.png';
   static const fbPhotoIcon = 'lib/Assets/fb_photo_icon.png';
   static const fbRoomSmallIcon = 'lib/Assets/fb_room_small_icon.png';
+  static const fbRoomLargeIcon = 'lib/Assets/fb_room_large_icon.png';
+  static const fbStoryAddIcon = 'lib/Assets/fb_story_add_icon.png';
   static const user = 'lib/Assets/user.jpg';
   static const person01 = 'lib/Assets/person01.jpg';
   static const person02 = 'lib/Assets/person02.jpg';
