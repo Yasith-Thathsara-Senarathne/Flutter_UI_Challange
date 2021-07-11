@@ -47,9 +47,28 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - lib/Assets/fb_live_icon.png
+    - lib/Assets/fb_messanger_icon.png
+    - lib/Assets/fb_photo_icon.png
+    - lib/Assets/fb_room_large_icon.png
+    - lib/Assets/fb_room_small_icon.png
+    - lib/Assets/fb_story_add_icon.png
+    - lib/Assets/friends_tab_icon.png
+    - lib/Assets/home_tab_icon.png
+    - lib/Assets/menu_tab_icon.png
+    - lib/Assets/notification_tab_icon.png
+    - lib/Assets/search_icon.png
+    - lib/Assets/user_tab_icon.png
+    - lib/Assets/user.jpg
+    - lib/Assets/person01.jpg
+    - lib/Assets/person02.jpg
+    - lib/Assets/person03.jpg
+    - lib/Assets/person04.jpg
+    - lib/Assets/person05.jpg
+    - lib/Assets/person06.jpg
+    - lib/Assets/person07.jpg
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
